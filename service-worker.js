@@ -1,11 +1,11 @@
-const CACHE_NAME = "loan-tool-v1";
+const CACHE_NAME = "loan-tool-v2";
 const APP_ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
   "./manifest.webmanifest",
-  "./icon.svg",
+  "./app-icon.png",
 ];
 
 self.addEventListener("install", (event) => {
