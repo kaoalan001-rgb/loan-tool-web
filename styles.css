@@ -88,13 +88,21 @@ svg {
 .app-logo {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  flex: 0 0 auto;
+  border: 1px solid rgba(217, 228, 222, 0.95);
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--green-strong), var(--green), var(--blue));
-  color: #fff;
-  font-weight: 950;
+  background: #fff;
   box-shadow: 0 12px 24px rgba(21, 61, 45, 0.18);
+}
+
+.app-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .app-identity strong {
