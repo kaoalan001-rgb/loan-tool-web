@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#123828" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="貸款工作台" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>貸款財務工作台</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-top">
+        <div class="app-identity">
+          <div class="app-logo" aria-hidden="true">貸</div>
+          <div>
+            <p class="eyebrow">財務工具</p>
+            <strong>貸款財務工作台</strong>
+          </div>
+        </div>
+        <div class="app-top-meta" aria-hidden="true">
+          <span>Loan</span>
+          <span>Compound</span>
+          <span>Spread</span>
+        </div>
+      </header>
+
+      <section id="loanView" class="loan-layout" aria-label="貸款財務工具">
+        <section class="loan-panel" aria-label="貸款試算">
+          <div class="loan-head">
+            <div>
+              <p class="eyebrow">貸款試算</p>
+              <h2>每月還款估算</h2>
+            </div>
+            <span id="loanPeriodsLabel">240 期</span>
+          </div>
+
+          <div class="field-grid loan-grid">
+            <label>
+              <span>貸款金額</span>
+              <input id="loanAmountInput" type="number" inputmode="decimal" min="1" step="10000" value="1000000" />
+            </label>
+            <label>
+              <span>年利率 %</span>
+              <input id="loanRateInput" type="number" inputmode="decimal" min="0" step="0.01" value="2.5" />
+            </label>
+            <label>
+              <span>還款期數</span>
+              <input id="loanPeriodsInput" type="number" inputmode="numeric" min="1" max="600" step="1" value="240" />
+            </label>
+            <label>
+              <span>還款方式</span>
+              <select id="loanMethodInput">
+                <option value="equal-payment">本息平均</option>
+                <option value="equal-principal">本金平均</option>
+                <option value="interest-only">只繳利息</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="loan-result-grid">
+            <article class="loan-result-card main-result">
+              <span id="monthlyPaymentLabel">每月約繳</span>
+              <strong id="monthlyPaymentAmount">$0</strong>
+            </article>
+            <article class="loan-result-card">
+              <span>總利息</span>
+              <strong id="totalInterestAmount">$0</strong>
+            </article>
+            <article class="loan-result-card">
+              <span>總還款</span>
+              <strong id="totalPaymentAmount">$0</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="compound-panel" aria-label="複利計算機">
+          <div class="loan-head">
+            <div>
+              <p class="eyebrow">複利計算機</p>
+              <h2>資產成長估算</h2>
+            </div>
+            <span id="compoundPeriodsLabel">120 期</span>
+          </div>
+
+          <div class="field-grid loan-grid">
+            <label>
+              <span>初始本金</span>
+              <input id="compoundPrincipalInput" type="number" inputmode="decimal" min="0" step="1000" value="100000" />
+            </label>
+            <label>
+              <span>每期投入</span>
+              <input id="compoundContributionInput" type="number" inputmode="decimal" min="0" step="1000" value="5000" />
+            </label>
+            <label>
+              <span>年化報酬率 %</span>
+              <input id="compoundRateInput" type="number" inputmode="decimal" min="0" step="0.1" value="5" />
+            </label>
+            <label>
+              <span>投入期數</span>
+              <input id="compoundPeriodsInput" type="number" inputmode="numeric" min="1" max="1200" step="1" value="120" />
+            </label>
+            <label>
+              <span>是否配息</span>
+              <select id="compoundDividendEnabledInput">
+                <option value="no">不配息</option>
+                <option value="yes">有配息</option>
+              </select>
+            </label>
+            <label>
+              <span>年配息率 %</span>
+              <input id="compoundDividendRateInput" type="number" inputmode="decimal" min="0" step="0.1" value="0" disabled />
+            </label>
+          </div>
+
+          <div class="loan-result-grid compound-result-grid">
+            <article class="loan-result-card main-result compound-main-result">
+              <span>期末資產</span>
+              <strong id="compoundFutureAmount">$0</strong>
+            </article>
+            <article class="loan-result-card">
+              <span>投入本金</span>
+              <strong id="compoundInvestedAmount">$0</strong>
+            </article>
+            <article class="loan-result-card">
+              <span>預估收益</span>
+              <strong id="compoundGainAmount">$0</strong>
+            </article>
+            <article class="loan-result-card">
+              <span>累計配息</span>
+              <strong id="compoundDividendAmount">$0</strong>
+            </article>
+            <article class="loan-result-card">
+              <span>每月配息</span>
+              <strong id="compoundMonthlyDividendAmount">$0</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="arbitrage-panel" aria-label="貸款與複利統計">
+          <div class="loan-head arbitrage-head">
+            <div>
+              <p class="eyebrow">貸款 × 複利統計</p>
+              <h2>套利試算</h2>
+            </div>
+            <label class="apply-toggle">
+              <input id="arbitrageApplyInput" type="checkbox" />
+              <span>套用統計</span>
+            </label>
+          </div>
+
+          <div id="arbitrageResultGrid" class="loan-result-grid arbitrage-result-grid is-disabled">
+            <article class="loan-result-card main-result arbitrage-main-result">
+              <span>套利淨額</span>
+              <strong id="arbitrageNetAmount">$0</strong>
+              <small id="arbitrageNetFormula" class="arbitrage-formula">期末資產 + 配息 - 貸款總還款</small>
+            </article>
+            <article class="loan-result-card">
+              <span>期末資產 + 配息</span>
+              <strong id="arbitrageReturnAmount">$0</strong>
+            </article>
+            <article class="loan-result-card">
+              <span>貸款總還款</span>
+              <strong id="arbitrageLoanCostAmount">$0</strong>
+            </article>
+            <article class="loan-result-card">
+              <span>每月現金流</span>
+              <strong id="arbitrageCashflowAmount">$0</strong>
+            </article>
+          </div>
+          <p id="arbitrageStatusText" class="arbitrage-status">勾選後開始比較貸款成本與複利收益。</p>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="貸款財務工作台圖示">
+  <defs>
+    <linearGradient id="bg" x1="78" y1="52" x2="430" y2="458" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#164832"/>
+      <stop offset=".52" stop-color="#123828"/>
+      <stop offset="1" stop-color="#132c45"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="138" y1="128" x2="370" y2="382" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f4cf75"/>
+      <stop offset=".5" stop-color="#d9912b"/>
+      <stop offset="1" stop-color="#b86d1c"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="150" y1="158" x2="366" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f6fff9"/>
+      <stop offset="1" stop-color="#bdebd6"/>
+    </linearGradient>
+    <filter id="softShadow" x="64" y="74" width="384" height="376" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#081911" flood-opacity=".28"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="110" fill="url(#bg)"/>
+  <path d="M104 136c52-46 117-67 194-57 54 7 92 29 118 65 25 34 33 73 24 117-11 52-41 91-90 118-50 27-106 33-168 18-45-11-78-34-98-70-20-35-23-73-9-114 7-20 17-39 29-57z" fill="#1c5d43" opacity=".42"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="116" y="102" width="280" height="308" rx="48" fill="#f8fbf7"/>
+    <rect x="140" y="132" width="232" height="70" rx="24" fill="#123828"/>
+    <path d="M170 274h44l34-45 46 65 50-82" fill="none" stroke="url(#gold)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="344" cy="212" r="13" fill="#d9912b"/>
+    <rect x="150" y="324" width="54" height="42" rx="16" fill="#dfece5"/>
+    <rect x="229" y="324" width="54" height="42" rx="16" fill="#dfece5"/>
+    <rect x="308" y="324" width="54" height="42" rx="16" fill="url(#gold)"/>
+  </g>
+
+  <text x="256" y="182" text-anchor="middle" font-family="Arial, 'Noto Sans TC', sans-serif" font-size="76" font-weight="900" fill="url(#mint)">貸</text>
+  <path d="M164 256h184" fill="none" stroke="#123828" stroke-width="12" stroke-linecap="round" opacity=".12"/>
+</svg>
