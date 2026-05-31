@@ -38,6 +38,26 @@ const elements = {
 
 let fitFrame = 0;
 
+function clearInitialInputs() {
+  [
+    elements.loanAmount,
+    elements.loanRate,
+    elements.loanPeriods,
+    elements.compoundPrincipal,
+    elements.compoundContribution,
+    elements.compoundRate,
+    elements.compoundPeriods,
+    elements.compoundDividendRate,
+  ].forEach((input) => {
+    input.value = "";
+  });
+
+  elements.loanMethod.value = "equal-payment";
+  elements.compoundDividendEnabled.value = "no";
+  elements.compoundDividendRate.disabled = true;
+  elements.arbitrageApply.checked = false;
+}
+
 function scheduleFitAmountTexts() {
   cancelAnimationFrame(fitFrame);
   fitFrame = requestAnimationFrame(fitAmountTexts);
@@ -331,14 +351,14 @@ elements.compoundPeriods.addEventListener("input", calculateCompound);
 elements.compoundDividendEnabled.addEventListener("change", () => {
   const hasDividend = elements.compoundDividendEnabled.value === "yes";
   elements.compoundDividendRate.disabled = !hasDividend;
-  if (!hasDividend) elements.compoundDividendRate.value = "0";
-  if (hasDividend && Number(elements.compoundDividendRate.value) === 0) elements.compoundDividendRate.value = "4";
+  if (!hasDividend) elements.compoundDividendRate.value = "";
   calculateCompound();
 });
 elements.compoundDividendRate.addEventListener("input", calculateCompound);
 elements.arbitrageApply.addEventListener("change", calculateArbitrage);
 window.addEventListener("resize", scheduleFitAmountTexts);
 
+clearInitialInputs();
 calculateLoan();
 calculateCompound();
 calculateArbitrage();

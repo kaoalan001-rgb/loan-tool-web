@@ -39,21 +39,21 @@
               <p class="eyebrow">貸款試算</p>
               <h2>每月還款估算</h2>
             </div>
-            <span id="loanPeriodsLabel">240 期</span>
+            <span id="loanPeriodsLabel">0 期</span>
           </div>
 
           <div class="field-grid loan-grid">
             <label>
               <span>貸款金額</span>
-              <input id="loanAmountInput" type="number" inputmode="decimal" min="1" step="10000" value="1000000" />
+              <input id="loanAmountInput" type="number" inputmode="decimal" min="1" step="10000" autocomplete="off" />
             </label>
             <label>
               <span>年利率 %</span>
-              <input id="loanRateInput" type="number" inputmode="decimal" min="0" step="0.01" value="2.5" />
+              <input id="loanRateInput" type="number" inputmode="decimal" min="0" step="0.01" autocomplete="off" />
             </label>
             <label>
               <span>還款期數</span>
-              <input id="loanPeriodsInput" type="number" inputmode="numeric" min="1" max="600" step="1" value="240" />
+              <input id="loanPeriodsInput" type="number" inputmode="numeric" min="1" max="600" step="1" autocomplete="off" />
             </label>
             <label>
               <span>還款方式</span>
@@ -87,25 +87,25 @@
               <p class="eyebrow">複利計算機</p>
               <h2>資產成長估算</h2>
             </div>
-            <span id="compoundPeriodsLabel">120 期</span>
+            <span id="compoundPeriodsLabel">0 期</span>
           </div>
 
           <div class="field-grid loan-grid">
             <label>
               <span>初始本金</span>
-              <input id="compoundPrincipalInput" type="number" inputmode="decimal" min="0" step="1000" value="100000" />
+              <input id="compoundPrincipalInput" type="number" inputmode="decimal" min="0" step="1000" autocomplete="off" />
             </label>
             <label>
               <span>每期投入</span>
-              <input id="compoundContributionInput" type="number" inputmode="decimal" min="0" step="1000" value="5000" />
+              <input id="compoundContributionInput" type="number" inputmode="decimal" min="0" step="1000" autocomplete="off" />
             </label>
             <label>
               <span>年化報酬率 %</span>
-              <input id="compoundRateInput" type="number" inputmode="decimal" min="0" step="0.1" value="5" />
+              <input id="compoundRateInput" type="number" inputmode="decimal" min="0" step="0.1" autocomplete="off" />
             </label>
             <label>
               <span>投入期數</span>
-              <input id="compoundPeriodsInput" type="number" inputmode="numeric" min="1" max="1200" step="1" value="120" />
+              <input id="compoundPeriodsInput" type="number" inputmode="numeric" min="1" max="1200" step="1" autocomplete="off" />
             </label>
             <label>
               <span>是否配息</span>
@@ -116,7 +116,7 @@
             </label>
             <label>
               <span>年配息率 %</span>
-              <input id="compoundDividendRateInput" type="number" inputmode="decimal" min="0" step="0.1" value="0" disabled />
+              <input id="compoundDividendRateInput" type="number" inputmode="decimal" min="0" step="0.1" autocomplete="off" disabled />
             </label>
           </div>
 
